@@ -1,0 +1,76 @@
+% author Khalid Latif
+% created on   09-Feb-2009
+
+% modified: Hasan Ali Khattak
+% modified on: 18-Feb-2022
+
+
+%\renewcommand{\figurename}{Fig.}
+%\renewcommand{\tablename}{Tab.}
+\renewcommand{\contentsname}{Contents}
+
+
+% Theorem and Algorithm commands
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{algorithm}{Algorithm}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+
+% Subtitle, Authors Registration Number and Address
+\newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
+\subtitle{} %Default empty sub-title
+\newcommand{\regno}[1]{\gdef\@regno{#1}}
+\newcommand{\address}[1]{\gdef\@address{#1}}
+
+% Title of the degree
+% Some of the degree program are defined below
+\newcommand{\degree}[1]{\gdef\@degree{#1}}
+
+\def\MSIT{Masters of Science in Information Technology (MS IT) }
+\def\MSCS{Masters of Science in Computer Science (MS CS) }
+\def\MSDS{Masters of Science in Data Science (MS DS) }
+\def\MSCSE{Masters in Communication Systems Engineering (MS CSE) }
+\def\MSCCS{Masters in Computer and Communication Security (MS CCS) }
+
+% School name
+% Some of the schools are defined below
+\newcommand{\school}[1]{\gdef\@school{#1}}
+\def\NBS{NUST Business School (NBS) }
+\def\SEECS{School of Electrical Engineering \& Computer Science (SEECS) }
+\def\SCEE{School of Civil and Environment Engineering (SCEE) }
+\def\SCME{School of Chemical and Material Engineering (SCME) }
+
+
+% Superviser's name and affiliation
+\newcommand{\adviser}[1]{\gdef\@adviser{#1}}
+\newcommand{\adviserAffiliation}[1]{\gdef\@adviserAffiliation{#1}}
+\adviserAffiliation{} % Default empty affiliation
+
+% Reset page numbering to 'arabic'
+\newcommand{\resetpagenumbering}{
+	\cleardoublepage
+	\pagenumbering{arabic}
+}
+
+
+
+
+
+% Redefine 'maketitle' command to make use of adviser details and NUST emblem
+\renewcommand{\maketitle}{
+
+\begin{titlepage}
+\begin{center}
+
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/logo_UNIPI.png}\par\vspace{1cm}
+    \vspace{2cm}
+    {\scshape\Large\textbf{\@title\par}}
+    \vspace{0.5cm}
+    {\scshape \@degree \par}
+    \vspace{4cm}
+    \textbf{\@author\par}
+    
+\end{center}
+\end{titlepage}
+\pagenumbering{roman}
+}

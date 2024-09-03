@@ -1,0 +1,83 @@
+\chapter{Introduction}
+In recent years, the widespread use of the internet for activities such as communication, online shopping, and various other online services has led to a significant increase in the amount of personal information circulating online. This surge has, in turn, exposed users to various cyber threats, with phishing being one of the most common. According to a 2017 FBI report, 25,344 phishing scams were identified, resulting in a total loss of \$29,703,421, primarily impacting sectors like finance, email, cloud storage and hosting, e-commerce, telecommunications, and social media. These numbers have been rising each year; in fact, a 2021 report from the Anti-Phishing Working Group identified 611,877 phishing sites, nearly six times the number identified in 2020. It is therefore crucial to find a solution to this type of cyber threat.
+
+\section{The phishing threat}
+Phishing is a type of cybercrime and social engineering attack designed to obtain sensitive information such as login credentials and financial details. These attacks often exploit human emotions, such as fear, urgency, or curiosity, to manipulate victims into divulging their confidential information. Attackers commonly utilize social media platforms, emails, and other forms of online communication to deceive their targets, directing them to fraudulent websites that appear legitimate.
+
+There are various types of phishing attacks that can be categorized based on the target, the medium used, and the method employed. In this document, we will focus on social engineering attacks that occur through the creation of fake websites. These fake websites are shared with victims via links embedded in advertisements, within cracks of licensed software, or in phishing emails.
+
+Phishing attacks are now more robust and hard to detect because the attacker uses various techniques, such as \textbf{Browsers in the Browser attacks} (BiTB) attacks, \textbf{Watering Hole} Attacks or \textbf{Clickjacking} to bypass the current detection systems as presented in the document of \textcite{PhishTransformer}
+
+BiTB Attacks involve a malicious website running within a legitimate one by exploiting browser vulnerabilities. This is achieved through hidden iframes or windows that deceive users into interacting with malicious content unknowingly, such as clicking on links or entering personal information.
+
+Watering Hole Attacks compromise legitimate websites frequented by targeted users. Attackers insert malicious links that redirect users to fraudulent webpages when clicked, tricking users into divulging sensitive information or inadvertently installing malware.
+
+Clickjacking employs transparent overlays or hidden links to deceive users into clicking unintended buttons or links on webpages. Users unknowingly perform actions on malicious sites, such as installing malware or disclosing confidential information.
+
+These attacks represent sophisticated strategies that exploit both user behavior and technical vulnerabilities in web environments. Unlike traditional attacks such as Cross-Site Scripting (XSS), Session Hijacking, or Malware Phishing, which exploit specific code or protocol weaknesses, BiTB, Watering Hole, and Clickjacking focus on manipulating user-content interactions to gain unauthorized access or steal sensitive data.
+
+Understanding these mechanisms is essential for implementing effective security measures and safeguarding users and digital infrastructures against evolving cyber threats.
+
+\section{Existing approaches}
+There are several methods to recognize and block phishing attacks, which can be broadly classified into two main categories: \textbf{Content-Based} and \textbf{Non-Content-Based} techniques.
+
+\subsection*{Non-Content-Based Techniques}
+These methods focus on features other than the website's content. Examples include:
+\begin{itemize}
+    \item \textbf{Blacklisting and Whitelisting}: This involves maintaining an updated list of URLs marked as either malicious or safe. Continuous updates are necessary for this method to remain effective.
+    \item \textbf{DNS Analysis}: This technique verifies the authenticity of a domain by analyzing its DNS information.
+\end{itemize}
+
+\subsection*{Content-Based Techniques}
+Content-based approaches are particularly interesting because they analyze the actual content of a website to detect phishing attacks. Some of the key approaches in this category include:
+\begin{itemize}
+    \item \textbf{URL Analysis and Visual Similarity}: This involves examining the characteristics of a URL, such as the presence of IP addresses, URL length, and special characters, to determine whether a site is legitimate. This approach is often combined with content analysis, which identifies visual similarities with popular legitimate sites, for instance, by comparing CSS rules or performing image and text analysis.
+    \item \textbf{Spam Filters}: These techniques address the phishing problem at an earlier stage by detecting and filtering fraudulent emails, thus preventing users from falling into phishing traps in the first place.
+\end{itemize}
+
+\subsection*{Advanced Techniques Using Artificial Intelligence (AI)}
+More innovative and recent techniques involve the use of AI to detect phishing attempts. Among these, we can distinguish:
+\begin{itemize}
+    \item \textbf{Machine Learning (ML) Approaches}: These techniques use classification algorithms (such as Support Vector Machines (SVM), Decision Trees (DT), K-Nearest Neighbors (KNN), and Random Forests (RF)) to differentiate between legitimate and fraudulent websites. In these approaches, it's necessary to extract a set of features that best represent a website.
+    \item \textbf{Deep Learning (DL) Techniques}: These approaches use neural networks, such as Convolutional Neural Networks (CNN) and Recurrent Neural Networks (RNN), to classify websites. Unlike ML techniques, DL methods automatically extract the most relevant features, making the model more complex and often less interpretable, which is why they are sometimes referred to as "black-box models."
+    \item \textbf{Transformers}: Even more recent techniques involve the use of Transformers, such as encoders combined with CNNs, to encode the website's features and discover the relationships between them that enable the classification task.
+\end{itemize}
+
+\section{Evaluation Metrics}
+In the context of machine learning and classification, there are several common metrics used to evaluate the performance of a model. Among these, \textit{Accuracy}, \textit{Precision}, \textit{Recall}, and \textit{F1-Score} are particularly important.
+
+\subsection*{Accuracy}
+Accuracy measures the proportion of correct predictions out of the total number of samples. It is defined as:
+
+\begin{equation}
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $TP$ (True Positives) are the correctly predicted positive instances.
+    \item $TN$ (True Negatives) are the correctly predicted negative instances.
+    \item $FP$ (False Positives) are the incorrectly predicted positive instances.
+    \item $FN$ (False Negatives) are the incorrectly predicted negative instances.
+\end{itemize}
+
+\subsection*{Precision}
+Precision is the proportion of true positives among all instances that were classified as positive. It is calculated as:
+
+\begin{equation}
+\text{Precision} = \frac{TP}{TP + FP}
+\end{equation}
+
+\subsection*{Recall}
+Recall, also known as sensitivity, is the proportion of true positives compared to the total number of actual positive samples. It is calculated as:
+
+\begin{equation}
+\text{Recall} = \frac{TP}{TP + FN}
+\end{equation}
+
+\subsection*{F1-Score}
+The F1-Score is the harmonic mean of precision and recall, and it is particularly useful when you need to balance these two metrics. It is defined as:
+
+\begin{equation}
+\text{F1-Score} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+\end{equation}
